@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Авторизація";
+}
+
+<h2>Авторизація</h2>
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <div class="mb-3">
+        <label for="login" class="form-label">Логін</label>
+        <input type="text" class="form-control" id="login" name="login" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Авторизуватись</button>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger mt-3">
+        @foreach (var entry in ViewData.ModelState.Values)
+        {
+            foreach (var error in entry.Errors)
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        }
+    </div>
+}

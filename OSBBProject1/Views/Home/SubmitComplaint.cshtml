@@ -1,0 +1,47 @@
+﻿@model OSBBProject1.Models.HelpRequest
+
+@{
+    ViewData["Title"] = "Подати Скаргу";
+}
+
+<h2>Подати Скаргу</h2>
+
+<form asp-action="SubmitComplaint" method="post" id="complaintForm">
+    <div class="mb-3">
+        <label for="Text" class="form-label">Текст скарги</label>
+        <textarea asp-for="Text" class="form-control" id="Text" required></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Подати Скаргу</button>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Ініціалізуємо валідацію форми
+            $("#complaintForm").validate({
+                rules: {
+                    Text: {
+                        required: true,
+                        minlength: 10 // Мінімальна довжина для тексту скарги
+                    }
+                },
+                messages: {
+                    Text: {
+                        required: "Будь ласка, введіть текст скарги.",
+                        minlength: "Текст скарги має бути не менше 10 символів."
+                    }
+                },
+                submitHandler: function (form) {
+                    // Можна додатково додати обробку перед відправкою форми
+                    form.submit();
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,64 @@
+﻿@model OSBBProject1.Models.Resident
+
+@{
+    ViewData["Title"] = "Створити Жителя";
+}
+
+<h1>Створити Жителя</h1>
+
+<form asp-action="Create">
+    <div class="form-group row mt-3">
+        <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label asp-for="Login" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Login" class="form-control" />
+            <span asp-validation-for="Login" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label asp-for="Password" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Password" class="form-control" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label asp-for="FlatNumber" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="FlatNumber" class="form-control" asp-items="@(new SelectList(ViewBag.FlatNumbers))"></select>
+            <span asp-validation-for="FlatNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label asp-for="AmountOfResidents" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="AmountOfResidents" class="form-control" />
+            <span asp-validation-for="AmountOfResidents" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <div class="col-sm-10 offset-sm-2 d-flex justify-content-between">
+            <a asp-action="ResidentsList" class="btn btn-secondary">Назад до Списку</a>
+            <input type="submit" value="Створити" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

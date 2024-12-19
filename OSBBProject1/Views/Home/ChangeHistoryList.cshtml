@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OSBBProject1.Models.ChangeHistory>
+
+<h2>Історія змін</h2>
+
+<div class="table-container">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Дата</th>
+                <th>Дія</th>
+                <th>Ким змінено</th>
+                <th>Тип сутності</th>
+                <th>Старе значення</th>
+                <th>Нове значення</th>
+            </tr>
+            @foreach (var change in Model)
+            {
+                <tr>
+                    <td>@change.ChangeDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@change.Action</td>
+                    <td>@change.ChangedBy</td>
+                    <td>@change.EntityType</td>
+                    <td>@(change.OldValue ?? "-")</td>
+                    <td>@(change.NewValue ?? "-")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

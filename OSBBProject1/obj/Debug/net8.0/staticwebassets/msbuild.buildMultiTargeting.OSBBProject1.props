@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\OSBBProject1.props" />
+</Project>

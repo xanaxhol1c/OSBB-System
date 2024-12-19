@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Проекти";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/projects.css" rel="stylesheet" /> 
+</head>
+<body class="projects-page">
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="container">
+
+        <div class="project-card">
+            <div class="project-title">Ремонт під'їздів</div>
+            <div class="project-description">
+                Проект спрямований на оновлення під'їздів будинку, заміну пошкоджених конструкцій, фарбування стін та оновлення освітлення.
+            </div>
+            <div class="project-status">Статус: Виконується</div>
+        </div>
+
+
+        <div class="project-card">
+            <div class="project-title">Облаштування дитячого майданчика</div>
+            <div class="project-description">
+                Створення нового дитячого майданчика для дітей, облаштування безпечного ігрового простору з новими гойдалками та каруселями.
+            </div>
+            <div class="project-status">Статус: Завершено</div>
+        </div>
+
+
+        <div class="project-card">
+            <div class="project-title">Заміна системи опалення</div>
+            <div class="project-description">
+                Заміна старих труб та опалювальних систем на нові, з метою покращення ефективності опалення та зниження витрат на енергію.
+            </div>
+            <div class="project-status">Статус: Планується</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OSBBProject1.Models.Resident>
+
+@{
+    ViewData["Title"] = "Residents";
+}
+
+<h2>Жителі ОСББ</h2>
+
+<!-- Контейнер для пошуку та кнопки додавання -->
+<!-- Контейнер для пошуку та кнопки додавання -->
+<div class="container">
+    <div class="row mb-3">
+
+        <!-- Форма для пошуку жителів та кнопка пошуку в одному рядку -->
+        <div class="col-md-8">
+            <form method="get" action="@Url.Action("SearchResidents", "Residents")" class="form-inline">
+                <div class="form-group mr-2">
+                    <input type="text" name="name" class="form-control" placeholder="Пошук за ім'ям" value="@ViewData["SearchName"]" />
+                </div>
+                <!-- Кнопка для пошуку, доданий відступ -->
+                <button type="submit" class="btn btn-primary mt-2">Шукати</button>
+            </form>
+        </div>
+
+        <!-- Кнопка для додавання нового жителя -->
+        <div class="col-md-3 text-right">
+            <a asp-controller="Residents" asp-action="Create" class="btn btn-primary btn-block">Додати нового жителя</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Таблиця з жителями -->
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Номер квартири</th>
+            <th>Ім'я</th>
+            <th>Логін</th>
+            <th>Пароль</th>
+            <th>Кількість жителів</th>
+            <th>Дані про жителів</th>
+            <th>Редагування</th>
+            <th>Видалення</th>
+        </tr>
+        @foreach (var resident in Model)
+        {
+            <tr>
+                <td>@resident.Id</td>
+                <td>@resident.FlatNumber</td>
+                <td>@resident.Name</td>
+                <td>@resident.Login</td>
+                <td>@resident.Password</td>
+                <td>@resident.AmountOfResidents</td>
+                <td>@resident.Description</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@resident.Id" class="btn btn-warning">Редагувати</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@resident.Id" class="btn btn-danger">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,111 @@
+﻿
+
+.projects-page html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .projects-page html {
+        font-size: 16px;
+    }
+}
+
+.projects-page body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    margin-bottom: 60px;
+}
+
+.projects-page h2 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+.projects-page .container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.projects-page .project-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+    .projects-page .project-card:hover {
+        transform: scale(1.05);
+    }
+
+.projects-page .project-title {
+    font-size: 1.5em;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.projects-page .project-description {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.projects-page .project-status {
+    font-weight: bold;
+    color: #28a745; /* Зелений колір для статусу */
+}
+
+header, custom-navbar {
+    background-color: #03d3fc;
+}
+
+/* Фокуси та активні стани для кнопок і елементів форм */
+.projects-page .btn:focus,
+.projects-page .btn:active:focus,
+.projects-page .btn-link.nav-link:focus,
+.projects-page .form-control:focus,
+.projects-page .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.projects-page html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    margin-top: 20px; /* Додаємо відступ від контенту */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.table-container {
+    max-height: calc(100vh - 200px); /* Встановлює максимальну висоту для таблиці, щоб не йти за футер */
+    overflow-y: auto; /* Додає вертикальну прокрутку */
+    margin-bottom: 20px; /* Додає відступ для футера */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Задає пріоритетність заголовкам над рядками */
+}

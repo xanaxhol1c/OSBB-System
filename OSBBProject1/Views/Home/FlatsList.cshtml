@@ -1,0 +1,67 @@
+﻿@model IEnumerable<OSBBProject1.Models.Flat>
+
+<h2>Список квартир</h2>
+
+
+<div style="max-height: 500px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+
+    <div class="search-form">
+        <form asp-action="ShowFlatsSequential" method="get" class="form-inline">
+            <label for="minFloor" class="mr-sm-2">Мінімальний поверх:</label>
+            <input type="number" name="minFloor" class="form-control mb-2 mr-sm-2" id="minFloor" />
+            <button type="submit" class="btn btn-primary mb-2">Шукати послідовно</button>
+        </form>
+        <form asp-action="ShowFlatsParallel" method="get" class="form-inline">
+            <label for="minFloorParallel" class="mr-sm-2">Мінімальний поверх для паралельного запиту:</label>
+            <input type="number" name="minFloor" class="form-control mb-2 mr-sm-2" id="minFloorParallel" />
+            <button type="submit" class="btn btn-success mb-2">Шукати паралельно</button>
+        </form>
+    </div>
+
+
+    @if (ViewBag.ExecutionTimeSequential != null)
+    {
+        <p>Час виконання послідовного запиту: @ViewBag.ExecutionTimeSequential мс</p>
+    }
+
+    @if (ViewBag.ExecutionTimeParallel != null)
+    {
+        <p>Час виконання паралельного запиту: @ViewBag.ExecutionTimeParallel мс</p>
+    }
+
+
+    <h3>Загальна кількість квартир для послідовного запиту: @ViewBag.TotalFlatsSequential</h3>
+    <h3>Загальна кількість квартир для паралельного запиту: @ViewBag.TotalFlatsParallel</h3>
+
+
+    <form asp-action="AddFlats" method="post">
+        <button type="submit" class="btn btn-danger mb-2">Додати 100,000 нових квартир</button>
+    </form>
+
+    <form asp-action="RemoveFlats" method="post">
+        <button type="submit" class="btn btn-warning mb-2">Видалити 100,000 квартир</button>
+    </form>
+</div>
+
+
+<div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Поверх</th>
+                <th>Статус електрики</th>
+                <th>Статус води</th>
+            </tr>
+            @foreach (var flat in Model)
+            {
+                <tr>
+                    <td>@flat.Id</td>
+                    <td>@flat.Floor</td>
+                    <td>@flat.ElectricityStatus</td>
+                    <td>@flat.WaterStatus</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

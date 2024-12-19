@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OSBBProject1.Models.Bill>
+
+<h2>Всі рахунки</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Рахунок за світло</th>
+            <th>Рахунок за воду</th>
+            <th>Статус</th>
+            <th>Ідентифікатор користувача</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bill in Model)
+        {
+            <tr>
+                <td>@bill.Id</td>
+                <td>@bill.LightBill</td>
+                <td>@bill.WaterBill</td>
+                <td>
+                    @if (bill.Status)
+                    {
+                        <span class="badge bg-success">Оплачено</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning">Не оплачено</span>
+                    }
+                </td>
+                <td>@bill.UserId</td>
+            </tr>
+        }
+    </tbody>
+</table>

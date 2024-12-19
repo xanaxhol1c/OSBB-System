@@ -1,0 +1,25 @@
+﻿@model dynamic  
+
+@{
+    ViewData["Title"] = "Профіль користувача";
+}
+
+<h2>Профіль користувача</h2>
+
+@if (Model is OSBBProject1.Models.Resident resident)
+{
+    <p>Id: @resident.Id</p>
+    <p>Номер квартири: @resident.FlatNumber</p>
+    <p>Ім'я: @resident.Name</p>
+    <p>Логін: @resident.Login</p>
+}
+else if (Model is OSBBProject1.Models.Admin admin)
+{
+    <p>Id: @admin.Id</p>
+    <p>Ім'я: @admin.Name</p>
+    <p>Логін: @admin.Login</p>
+}
+else
+{
+    <p>User not found.</p>
+}   

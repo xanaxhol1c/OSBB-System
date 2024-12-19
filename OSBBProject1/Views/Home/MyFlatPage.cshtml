@@ -1,0 +1,32 @@
+﻿@model OSBBProject1.Models.Flat
+
+@{
+    ViewData["Title"] = "Моя квартира";
+}
+
+<h2>Моя квартира</h2>
+
+@if (Model != null)
+{
+    <h5>Деталі квартири</h5>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <strong>ID квартири:</strong> @Model.Id
+        </li>
+        <li class="list-group-item">
+            <strong>Поверх:</strong> @Model.Floor
+        </li>
+        <li class="list-group-item">
+            <strong>Статус електропостачання:</strong> @(Model.ElectricityStatus ? "Увімкнено" : "Вимкнено")
+        </li>
+        <li class="list-group-item">
+            <strong>Статус водопостачання:</strong> @(Model.WaterStatus ? "Увімкнено" : "Вимкнено")
+        </li>
+    </ul>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        Квартира не знайдена або виникла помилка при завантаженні даних.
+    </div>
+}
