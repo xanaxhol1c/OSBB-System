@@ -44,6 +44,24 @@ namespace OSBBProject1.Controllers
             return View("~/Views/Home/CreateResident.cshtml");
         }
 
+        public static bool ValidateResident(Resident resident, out string errorMessage)
+        {
+            if (string.IsNullOrEmpty(resident.Name) || string.IsNullOrEmpty(resident.Login) || resident.FlatNumber == 0)
+            {
+                errorMessage = "Всі поля мають бути заповнені.";
+                return false;
+            }
+
+            if (!Regex.IsMatch(resident.Name, @"^[a-zA-Zа-яА-ЯёЁЇїІіЄєҐґ]+$"))
+            {
+                errorMessage = "В імені можуть бути лише букви.";
+                return false;
+            }
+
+            errorMessage = "";
+            return true;
+        }
+
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Resident resident)
@@ -61,15 +79,12 @@ namespace OSBBProject1.Controllers
                     ModelState.AddModelError("FlatNumber", "Обраний номер квартири не існує або вже зайнятий.");
                 }
 
-                if (string.IsNullOrEmpty(resident.Name) || string.IsNullOrEmpty(resident.Login) || resident.FlatNumber == 0)
+                if (!ValidateResident(resident, out string errorMessage))
                 {
-                    ModelState.AddModelError("", "Всі поля мають бути заповнені.");
+                    ModelState.AddModelError("", errorMessage);
                 }
 
-                if (!Regex.IsMatch(resident.Name, @"^[a-zA-Zа-яА-ЯёЁЇїІіЄєҐґ]+$"))
-                {
-                    ModelState.AddModelError("Name", "В імені можуть бути лише букви.");
-                }
+              
 
                 if (ModelState.ErrorCount == 0)
                 {
@@ -175,15 +190,11 @@ namespace OSBBProject1.Controllers
                     ModelState.AddModelError("FlatNumber", "Обраний номер квартири не існує або вже зайнятий.");
                 }
 
-                if (string.IsNullOrEmpty(resident.Name) || string.IsNullOrEmpty(resident.Login) || resident.FlatNumber == 0)
+                if (!ValidateResident(resident, out string errorMessage))
                 {
-                    ModelState.AddModelError("", "Всі поля мають бути заповнені.");
+                    ModelState.AddModelError("", errorMessage);
                 }
 
-                if (!Regex.IsMatch(resident.Name, @"^[a-zA-Zа-яА-ЯёЁЇїІіЄєҐґ]+$"))
-                {
-                    ModelState.AddModelError("Name", "В імені можуть бути лише букви.");
-                }
 
                 if (ModelState.ErrorCount == 0)
                 {
