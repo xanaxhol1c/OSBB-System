@@ -74,7 +74,7 @@ namespace OSBBProject1.Controllers
                 if (ModelState.ErrorCount == 0)
                 {
                     int newResidentId = _context.Residents.Max(r => (int?)r.Id) ?? 0;
-                    resident.Id = newResidentId + 1;
+                    resident.Id = 0;
 
                     _context.Residents.Add(resident);
                     await _context.SaveChangesAsync();
