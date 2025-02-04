@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\loram\\source\\repos\\OSBBProject1\\OSBBProject1\\OSBBProject1.csproj": {}
+    "D:\\!01 labs\\!02 course\\practice_ed\\OSBB-System\\OSBBProject1\\OSBBProject1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\loram\\source\\repos\\OSBBProject1\\OSBBProject1\\OSBBProject1.csproj": {
+    "D:\\!01 labs\\!02 course\\practice_ed\\OSBB-System\\OSBBProject1\\OSBBProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\loram\\source\\repos\\OSBBProject1\\OSBBProject1\\OSBBProject1.csproj",
+        "projectUniqueName": "D:\\!01 labs\\!02 course\\practice_ed\\OSBB-System\\OSBBProject1\\OSBBProject1.csproj",
         "projectName": "OSBBProject1",
-        "projectPath": "C:\\Users\\loram\\source\\repos\\OSBBProject1\\OSBBProject1\\OSBBProject1.csproj",
-        "packagesPath": "C:\\Users\\loram\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\loram\\source\\repos\\OSBBProject1\\OSBBProject1\\obj\\",
+        "projectPath": "D:\\!01 labs\\!02 course\\practice_ed\\OSBB-System\\OSBBProject1\\OSBBProject1.csproj",
+        "packagesPath": "C:\\Users\\roodge322\\.nuget\\packages\\",
+        "outputPath": "D:\\!01 labs\\!02 course\\practice_ed\\OSBB-System\\OSBBProject1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\loram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\roodge322\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -83,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
