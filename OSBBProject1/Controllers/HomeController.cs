@@ -18,33 +18,22 @@ namespace OSBBProject1.Controllers
             _context = context;
         }
 
-        // Головна сторінка
+        private IActionResult RenderView(string pageName)
+        {
+            ViewBag.ActivePage = pageName;
+            return View(pageName);
+        }
+
         public IActionResult Index()
         {
             ViewBag.ActivePage = "Index";
             return View();
         }
 
-        // Сторінка "Моя квартира"
-        public IActionResult MyFlatPage()
-        {
-            ViewBag.ActivePage = "MyFlatPage";
-            return View(); // Це поверне View MyFlatPage.cshtml
-        }
-
-        // Сторінка "Проекти"
-        public IActionResult ProjectsPage()
-        {
-            ViewBag.ActivePage = "ProjectsPage";
-            return View(); // Тут необхідно мати View ProjectsPage.cshtml
-        }
-
-        // Сторінка "Подати скаргу"
-        public IActionResult HelpRequestPage()
-        {
-            ViewBag.ActivePage = "HelpRequestPage";
-            return View(); // Тут необхідно мати View HelpRequestPage.cshtml
-        }
+ 
+        public IActionResult MyFlatPage() => RenderView("MyFlatPage");
+        public IActionResult ProjectsPage() => RenderView("ProjectsPage");
+        public IActionResult HelpRequestPage() => RenderView("HelpRequestPage");
 
         // Сторінка "Мій профіль"
         public IActionResult UserProfile()
